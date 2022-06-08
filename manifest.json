@@ -1,0 +1,24 @@
+{
+    "manifest_version": 2,
+    "name": "Tutoriel créer une extension",
+    "description": "Wysiwyg app",
+    "version": "1.0", 
+    "permissions": [ 
+        "http://*/*",
+        "https://*/*"
+    ],
+    "browser_action": { 
+        "default_icon": "pen.png", 
+        "default_popup": "popup.html" 
+    },
+    "permissions": [ 
+        "http://*/*",
+        "https://*/*",
+        "tabs" 
+    ],
+    "background": { 
+        "scripts": [
+            "monscript.js"
+        ]
+    }
+}

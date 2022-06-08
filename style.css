@@ -1,0 +1,80 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.container{
+    margin-top: 2rem;
+    display: grid;
+    grid-template-rows: 50px auto 250px;
+    grid-template-columns:auto;
+}
+.Barre_doutil{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(51, 51, 58, 0.383);
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+button,#editMode{
+margin: 5px;
+padding: 8px;
+border-radius: 5px;
+cursor: pointer;
+border: none;
+}
+button:hover,#editMode:hover{
+    background-color: darkgray;
+    transition: all 1s;
+    border-radius: 5px;
+    color: rgb(66, 66, 66);
+}
+#textBox {
+    display: block;
+    width: 80%;
+    margin: auto;
+    height: 450px;
+    border: 1px solid black;
+    border-radius: 5px;
+    overflow: scroll;
+    padding: 1%;
+  }
+
+#toolBar1 select { font-size:10px; }
+
+
+.box{
+    margin: 0 10px;
+}
+
+
+#editMode{
+   text-align: center;
+    background-color: #efefef;
+    /* display: block; */
+
+}
+#editMode input{
+    appearance: none;
+}
+
+
+#sourceText{
+    /* display: block; */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    height: 100%;
+}
+
+.record_video{
+  margin-left: 200px;
+}
+#fileLo{
+  display: none;
+}

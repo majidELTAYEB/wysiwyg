@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Wysiwyg Text Editor</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+
+  </head>
+  <body>
+
+    <div class="container">
+      <form
+        name="compForm"
+        id="sendEmail"
+      >
+
+
+        <div class="Barre_doutil">
+          <select id="textSize" data-commande-select="fontsize">
+            <option class="heading" selected>- size -</option>
+            <option value="1">Very small</option>
+            <option value="2">A bit small</option>
+            <option value="3">Normal</option>
+            <option value="4">Medium-large</option>
+            <option value="5">Big</option>
+            <option value="6">Very big</option>
+            <option value="7">Maximum</option>
+          </select>
+
+          <select id="textColor" data-commande-select="forecolor">
+            <option class="heading" selected>- color -</option>
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+            <option value="black">Black</option>
+          </select>
+
+          <select id="textBackgroungColor" data-commande-select="backcolor">
+            <option class="heading" selected>- background -</option>
+            <option value="red">Red</option>
+            <option value="green">Green</option>
+            <option value="black">Black</option>
+          </select>
+        </div>
+
+        <div class="Barre_doutil">
+          <div class="box">
+            <button
+              class="intLink"
+              type="button"
+              title="Bold"
+              data-commande-name="bold"
+
+            >
+              <i class="fas fa-bold"></i>
+            </button>
+            <button
+              class="intLink"
+              type="button"
+              title="Italic"
+                data-commande-name="italic"
+
+            >
+              <i class="fas fa-italic"></i>
+            </button>
+            <button
+              class="intLink"
+              type="button"
+              title="Underline"
+                data-commande-name="underline"
+
+            >
+              <i class="fas fa-strikethrough"></i>
+            </button>
+          </div>
+
+          <div class="box">
+            <button
+              class="intLink"
+              type="button"
+              title="Right align"
+                data-commande-name="justifyright"
+
+            >
+              <i class="fas fa-align-right"></i>
+            </button>
+            <button
+              class="intLink"
+              type="button"
+              title="Center align"
+                data-commande-name="justifycenter"
+
+            >
+              <i class="fas fa-align-center"></i>
+            </button>
+            <button
+              class="intLink"
+              type="button"
+              title="Left align"
+              data-commande-name="justifyleft"
+
+
+            >
+              <i class="fas fa-align-left"></i>
+            </button>
+          </div>
+
+          <div class="box">
+            <button
+              class="intLink"
+              type="button"
+              title="Delete indentation"
+                data-commande-name="outdent"
+
+
+            >
+              <i class="fas fa-angle-double-left"></i>
+            </button>
+            <button
+              class="intLink"
+              type="button"
+              title="Add indentation"
+                data-commande-name="indent"
+
+            >
+              <i class="fas fa-angle-double-right"></i>
+            </button>
+            <button
+              class="intLink"
+              type="button"
+              title="Insert horizontal rule"
+                data-commande-name="inserthorizontalrule"
+
+            >
+              <i class="fas fa-grip-lines"></i>
+            </button>
+          </div>
+
+          <div class="box">
+            <button
+              class="intLink"
+              type="button"
+              title="Hyperlink"
+                data-commande-name="createlink"
+
+            >
+              <i class="fas fa-link"></i>
+            </button>
+            <button
+              class="intLink"
+              type="button"
+              title="Hyperlink"
+                data-commande-name="insertImage"
+
+            >
+              <i class="far fa-images"></i>
+            </button>
+          </div>
+          <div>
+            <button type="button" id="save">Save</button>
+            <button type="button" id="load">Load</button>
+          </div>
+        </div>
+
+        <div class="Barre_doutil">
+          <div class="box">
+            <button
+              class="intLink"
+              type="submit"
+              name="valider"
+              title="envoie par email"
+              id="valider"
+            >
+              <i class="fas fa-envelope"></i>
+            </button>
+            <button class="intLink" type="button" title="voir sa possition" onclick="initialize()">
+              <i class="fas fa-map-marked-alt"></i>
+            </button>
+            <button class="intLink" type="button" title="microphone">
+              <i class="fas fa-microphone"></i>
+            </button>
+            <button class="intLink" type="button" title="video" id="debut-camera">
+              <i class="fas fas fa-video"></i>
+            </button>
+            <label for="fileLo"><i class="fas fas fa-image"></i></label>
+            <input id="fileLo" type='file'/>
+
+
+            <button class="intLink" type="button" title="Extention">
+              <i class="fas fa-puzzle-piece"></i>
+            </button>
+            <p class="intLink" id="editMode">
+              <input
+                type="checkbox"
+                name="switchMode"
+                id="switchBox"
+              />
+              <label for="switchBox"
+                ><i class="fas fa-code"></i> Voir le html</label
+              >
+            </p>
+            <div id="buttons">
+              <button type="button" class="record">Record</button>
+              <button type="button" class="stop">Stop</button>
+          </div>
+           
+          </div>
+        </div>
+
+        <div name ="textBox" id="textBox" contenteditable><p>Lorem ipsum</p><div id="content"></div><div id="map_canvas"></div><img style="display: none" width="200" height="200" id="myImg" src="#">  <section class="sound-clips"></section>  <section class="main-controls">
+          <canvas class="visualizer" height="60px"></canvas>
+      </section></div>
+      </form>
+    </div>
+
+    <div class="record_video">
+      <video style="display: none" id="video" width="320" height="240" autoplay></video>
+      <button style="display: none" id="debut-record">Start Recording</button>
+      <button style="display: none" id="stop-record">Stop Recording</button>
+      <button style="display: none" id="stop-webcam">Stop webcam</button>
+      <a style="display: none" id="telecharger-video" download="test.webm">Download Video</a>
+    </div>
+
+  <script src="./index.js"></script>
+  <script src="micro_audio.js"></script>
+  </body>
+</html>
